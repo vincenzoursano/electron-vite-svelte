@@ -5,6 +5,7 @@ import electron from 'vite-plugin-electron'
 import renderer from 'vite-plugin-electron-renderer'
 import { notBundle } from 'vite-plugin-electron/plugin'
 import pkg from './package.json'
+import path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command }) => {
@@ -16,9 +17,7 @@ export default defineConfig(({ command }) => {
 
   return {
     plugins: [
-      svelte({
-        
-      }),
+      svelte(),
       electron([
         {
           // Main process entry file of the Electron App.
@@ -75,6 +74,11 @@ export default defineConfig(({ command }) => {
       // Use Node.js API in the Renderer process
       renderer(),
     ],
+    resolve: {
+      alias: {
+        "$lib": path.resolve("./src/lib"),
+      }
+    },
     server: process.env.VSCODE_DEBUG && (() => {
       const url = new URL(pkg.debug.env.VITE_DEV_SERVER_URL)
       return {

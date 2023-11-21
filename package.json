@@ -1,0 +1,38 @@
+{
+  "name": "electron-vite-svelte",
+  "version": "0.0.1",
+  "main": "dist-electron/main/index.js",
+  "description": "Really simple Electron + Svelte + Vite boilerplate.",
+  "author": "vincenzo ursano",
+  "license": "MIT",
+  "private": true,
+  "keywords": [
+    "electron",
+    "rollup",
+    "vite",
+    "svelte"
+  ],
+  "debug": {
+    "env": {
+      "VITE_DEV_SERVER_URL": "http://127.0.0.1:3344/"
+    }
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && electron-builder",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^3.0.1",
+    "@tsconfig/svelte": "^5.0.2",
+    "electron": "^26.0.0",
+    "electron-builder": "^24.6.3",
+    "svelte": "^4.2.7",
+    "svelte-check": "^3.6.0",
+    "tree-kill": "^1.2.2",
+    "typescript": "^5.1.6",
+    "vite": "^4.4.9",
+    "vite-plugin-electron": "^0.15.3",
+    "vite-plugin-electron-renderer": "^0.14.5"
+  }
+}
